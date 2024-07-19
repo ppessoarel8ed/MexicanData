@@ -8,24 +8,24 @@ import datetime
 #---------------------------------------------------------------------------------------------------------------------
 pdf_path='pdf_files'
 csv_path='csv_files'
-# output_path='treated_files'
-# if os.path.exists(pdf_path):
-#     for file in os.listdir(pdf_path):
-#         os.remove(pdf_path+'/'+file)
-# if os.path.exists(csv_path):
-#     for file in os.listdir(csv_path):
-#         os.remove(csv_path+'/'+file)
-# # Creating folders if they dont exist
-# if not os.path.exists(pdf_path):
-#     os.makedirs(pdf_path)
-# if not os.path.exists(csv_path):
-#     os.makedirs(csv_path)
-# if not os.path.exists(output_path):
-#     os.makedirs(output_path)
+output_path='treated_files'
+if os.path.exists(pdf_path):
+    for file in os.listdir(pdf_path):
+        os.remove(pdf_path+'/'+file)
+if os.path.exists(csv_path):
+    for file in os.listdir(csv_path):
+        os.remove(csv_path+'/'+file)
+# Creating folders if they dont exist
+if not os.path.exists(pdf_path):
+    os.makedirs(pdf_path)
+if not os.path.exists(csv_path):
+    os.makedirs(csv_path)
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
 
-# #Step2: Downloading files calling function
-# #---------------------------------------------------------------------------------------------------------------------
-# download_files(pdf_path,csv_path)
+#Step2: Downloading files calling function
+#---------------------------------------------------------------------------------------------------------------------
+download_files(pdf_path,csv_path)
 
 #Step3: Extracting data from pdfs using auxiliar function
 #---------------------------------------------------------------------------------------------------------------------
