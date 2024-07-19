@@ -55,7 +55,7 @@ def extract_data(pdf_path,csv_path):
                 output_file.iloc[i, rfc_index]=re.sub('(^\d*,\d*)|(^\d*)','',output_file.iloc[i, rfc_index].strip()).strip() #remove index that is mixed with RFC
 
         #saving file
-        output_file.to_csv(('/'+csv_path+'/'+file).replace('.pdf','.csv'), index=False, encoding='utf-8-sig')
+        output_file.to_csv((csv_path+'/'+file).replace('.pdf','.csv'), index=False, encoding='utf-8-sig')
         
     print('Finished extracting data from pdfs')
     return
