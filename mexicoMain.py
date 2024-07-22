@@ -1,6 +1,7 @@
 import os
 from downloadFiles import download_files
 from extractPdfs import extract_data
+from combineCsvFiles import combine_csv_files
 import pandas as pd
 import datetime
 
@@ -33,7 +34,6 @@ extract_data(pdf_path,csv_path)
 
 #Step4: Merging all csv files into one using auxiliar function
 #---------------------------------------------------------------------------------------------------------------------
-from combineCsvFiles import combine_csv_files
 df = combine_csv_files(csv_path)
 
 #Step5: treating df and saving the output
@@ -41,7 +41,7 @@ df = combine_csv_files(csv_path)
 #sort values using columns RFC and Legal Name
 df=df.sort_values(['RFC','Legal Name'], ascending=False)
 df=df.drop_duplicates(subset=['RFC', 'Legal Name'], keep='first')
-df['Person or Company']=df['Person or Company'].upper()
+df['Person or Company']=df['Person or Company'].apply(lambda x: str(x).upper())
 df['Person or Company']=df['Person or Company'].apply(lambda x: 'Person' if 'F'==x.strip() or 'FISICA' in x or 'F¡sica'.upper() in x else x)
 df['Person or Company']=df['Person or Company'].apply(lambda x: 'Company' if 'M'==x.strip() or 'MORAL' in x or 'F¡sica'.upper() in x else x)
 
